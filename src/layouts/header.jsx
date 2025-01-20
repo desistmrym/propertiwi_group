@@ -9,16 +9,18 @@ const Header = () => {
     };
     return (
         <div className="relative z-[9] flex justify-center text-white">
-            <div className="hidden lg:flex justify-between bg-[#3033ac] py-4 container font-['Work-Sans-Bold']">
-                <div className="flex gap-4">
-                    <img src={logo} alt="logo" className="object-cover w-8 h-8 rounded-full" />
-                    <div className="mt-[3px] text-[16px] tracking-[.04rem]">PROPERTIWI GROUP</div>
-                </div>
-                <div className="flex gap-4 lg:gap-10 mt-[5px] cursor-pointer">
-                    <a className="text-[#dbbc42] hover:text-[#dbbc42]">Home</a>
-                    <a className="hover:text-[#dbbc42]">Proyek</a>
-                    <a className="hover:text-[#dbbc42]">Tentang Kami</a>
-                    <a className="hover:text-[#dbbc42]">Kontak & Karir</a>
+            <div className="hidden lg:flex justify-center bg-[#3033ac] w-[100%] py-4 font-['Work-Sans-Bold']">
+                <div className="flex justify-between container">
+                    <div className="flex gap-4">
+                        <img src={logo} alt="logo" className="object-cover w-8 h-8 rounded-full" />
+                        <div className="mt-[3px] text-[16px] tracking-[.04rem]">PROPERTIWI GROUP</div>
+                    </div>
+                    <div className="flex gap-4 lg:gap-10 mt-[5px] cursor-pointer">
+                        <a className="text-[#dbbc42] hover:text-[#dbbc42]">Home</a>
+                        <a className="hover:text-[#dbbc42]">Proyek</a>
+                        <a className="hover:text-[#dbbc42]">Tentang Kami</a>
+                        <a className="hover:text-[#dbbc42]">Kontak & Karir</a>
+                    </div>
                 </div>
             </div>
             <div className="fixed w-[100%] flex justify-start lg:hidden bg-[#3033ac] py-4 container font-['Work-Sans-Bold']">
