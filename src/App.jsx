@@ -1,9 +1,23 @@
 import Header from './layouts/header'
 import './App.css'; 
-import { cover, tg_1, tg_2, facebook, tiktok, youtube, instagram, p_1, p_2, list_sosmed } from './assets/list_image';
+import { cover, tg_1, tg_2, facebook, tiktok, youtube, instagram, p_1, p_2, list_sosmed, list_perum } from './assets/list_image';
 import Footer from './layouts/footer';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
+  const [data_perum, set_data_perum] = useState([]);
+  const [isPerum, setIsPerum] = useState('Tangerang')
+
+  useEffect(() => {
+    handlePerum('Tangerang')
+  }, [])
+  
+  const handlePerum = (type) => {
+    const filtered = list_perum.filter(item => item.address === type);
+    set_data_perum(filtered)
+    setIsPerum(type)
+  } 
 
   return (
     <>
@@ -19,22 +33,18 @@ function App() {
               <div className='border-t-[5px] border-[#dbbc42] w-[20%] rounded-full'></div>
             </div>
             <div className="flex justify-center my-5 gap-5">
-              <div className='bg-[#dbbc42] py-2 px-5 rounded-full'>Tangerang</div>
-              <div className='bg-[#d9d9d9] py-2 px-5 rounded-full text-[#737373]'>Bogor</div>
+              <div className={`${isPerum === "Tangerang" ? 'bg-[#dbbc42]' : 'bg-[#d9d9d9] text-[#737373]'} py-2 px-5 rounded-full cursor-pointer`} onClick={() => handlePerum('Tangerang')}>Tangerang</div>
+              <div className={`${isPerum === "Bogor" ? 'bg-[#dbbc42]' : 'bg-[#d9d9d9] text-[#737373]'} py-2 px-5 rounded-full cursor-pointer`} onClick={() => handlePerum('Bogor')}>Bogor</div>
             </div>
-            <div className="flex justify-center my-5 gap-5">
-              <div className="border-2 border-black rounded-xl">
-                <img src={tg_1} alt="" className='w-full h-80 rounded-xl' />
-                <div className="relative bg-[#d9d9d9] py-1 px-4 rounded-xl -mt-[1rem]">
-                  <p className='text-white text-[2rem]'>Grand Village Sepatan</p>
+            <div className="grid grid-cols-3 gap-5 my-5">
+              {data_perum.length > 0 && data_perum.map((item, x) => 
+                <div key={x} className="border-2 border-black rounded-xl">
+                  <img src={item.image} alt="" className='w-full h-80 rounded-xl' />
+                  <div className="relative bg-[#d9d9d9] py-1 px-4 rounded-xl -mt-[1rem]">
+                    <p className='text-white text-[2rem]'>{item.name}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="border-2 border-black rounded-xl">
-                <img src={tg_2} alt="" className='w-full h-80 rounded-xl' />
-                <div className="relative bg-[#d9d9d9] py-1 px-4 rounded-xl -mt-[1rem]">
-                  <p className='text-white text-[2rem]'>Bayur Sarana Indah</p>
-                </div>
-              </div>
+              )}
             </div>
 
 

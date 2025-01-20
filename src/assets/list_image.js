@@ -3,6 +3,7 @@ import logo_png from '../assets/logo/logo.png';
 import cover from '../assets/images/cover.jpg';
 import tg_1 from '../assets/images/tg_1.jpg';
 import tg_2 from '../assets/images/tg_2.jpg';
+import tg_3 from '../assets/images/tg_3.jpg';
 import bg_1 from '../assets/images/bg_1.jpg';
 import bg_2 from '../assets/images/bg_2.jpg';
 import tiktok from '../assets/images/tiktok.jpg';
@@ -21,6 +22,33 @@ import p_2 from '../assets/images/p_2.jpg'
 
 // https://www.tiktok.com/@grandvillagesepatan_tgr
 
+const list_perum = [
+    {
+        address: 'Tangerang',
+        name: 'Bonisari Sarana Indah',
+        image: tg_3
+    },
+    {
+        address: 'Tangerang',
+        name: 'Grand Village Sepatan',
+        image: tg_1
+    },
+    {
+        address: 'Tangerang',
+        name: 'Bayur Sarana Indah',
+        image: tg_2
+    },
+    {
+        address: 'Bogor',
+        name: 'Sarana Indah Residence',
+        image: bg_1
+    },
+    {
+        address: 'Bogor',
+        name: 'Grand Residence Indah',
+        image: bg_2
+    },
+]
 
 const list_sosmed = [
     {
@@ -55,5 +83,6 @@ export {
     youtube,
     p_1,
     p_2,
-    list_sosmed
+    list_sosmed,
+    list_perum
 }
