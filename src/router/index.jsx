@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../layouts';
 import Home from '../container/Home';
 import Project from '../container/Project';
-import About from '../container/About';
+import About from '../container/Tentang-Kami';
 
 // Layout components (if you have any)
 // import MainLayout from '../layouts/MainLayout';
