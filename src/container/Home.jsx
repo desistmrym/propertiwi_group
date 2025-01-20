@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
 import {
   cover,
   list_sosmed,
-  list_perum,
   list_achiev,
-  subsidi,
 } from "../assets/list_image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
