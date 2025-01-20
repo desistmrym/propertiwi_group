@@ -3,6 +3,7 @@ import Layout from '../layouts';
 import Home from '../container/Home';
 import Project from '../container/Project';
 import About from '../container/Tentang-Kami';
+import Contact from '../container/Contact';
 
 // Layout components (if you have any)
 // import MainLayout from '../layouts/MainLayout';
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/tentang-kami',
                 element: <About />
+            },
+            {
+                path: '/kontak-karir',
+                element: <Contact />
             },
         ]
     },

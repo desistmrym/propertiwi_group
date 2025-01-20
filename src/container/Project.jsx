@@ -4,7 +4,7 @@ import Perumahan from "../component/perumahan";
 const Project = () => {
     return (
         <div>
-            <CoverHeader />
+            <CoverHeader type="header" />
             <div className="flex justify-center my-5 lg:my-10">
                 <div className="container">
                     <Perumahan />
