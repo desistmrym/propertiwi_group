@@ -12,6 +12,16 @@
   src: url('./assets/font/Work_Sans/static/WorkSans-Bold.ttf');
 }
 
+@font-face {
+  font-family: 'Eastman-Grotesque-Bold';
+  src: url('./assets/font/eastman_grotesque/Eastman-Grotesque-Bold-trial.otf');
+}
+
+@font-face {
+  font-family: 'Inter-Bold';
+  src: url('./assets/font/Inter/static/Inter_18pt-Bold.ttf');
+}
+
 :root {
   font-family: 'Work_Sans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -62,6 +72,19 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+.text-shadow {
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+/* Hides scrollbar on Webkit-based browsers */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hides scrollbar on Firefox */
+.scrollbar-hidden {
+  scrollbar-width: none;  /* For Firefox */
 }
 
 @media (prefers-color-scheme: light) {
