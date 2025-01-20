@@ -55,7 +55,7 @@ const list_sosmed = [
     },
     {
         icon: instagram,
-        link: 'www.instagram.com/grandvillagesepatan/'
+        link: 'https://www.instagram.com/grandvillagesepatan/'
     },
     {
         icon: tiktok,
@@ -63,7 +63,7 @@ const list_sosmed = [
     },
     {
         icon: youtube,
-        link: 'www.youtube.com/grandvillagesepatan/'
+        link: 'https://www.youtube.com/grandvillagesepatan/'
     }
 ]
 
