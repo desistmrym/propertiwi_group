@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { logo } from "../assets/list_image";
+import { list_header } from "../assets/list_data";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false);
+    const activeLink = location.pathname || '';
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -16,10 +20,21 @@ const Header = () => {
                         <div className="mt-[3px] text-[16px] tracking-[.04rem]">PROPERTIWI GROUP</div>
                     </div>
                     <div className="flex gap-4 lg:gap-10 mt-[5px] cursor-pointer">
-                        <a className="text-[#dbbc42] hover:text-[#dbbc42]">Home</a>
-                        <a className="hover:text-[#dbbc42]">Proyek</a>
-                        <a className="hover:text-[#dbbc42]">Tentang Kami</a>
-                        <a className="hover:text-[#dbbc42]">Kontak & Karir</a>
+                        {list_header.map((item, key) => 
+                            <a
+                                key={key}
+                                href="#"
+                                onClick={(e) => {
+                                e.preventDefault();
+                                navigate(`${item.link}`);
+                                }}
+                                className={`hover:text-[#dbbc42] transition-all duration-300 ${
+                                    activeLink === item.link ? 'text-[#dbbc42]' : ''
+                                }`}
+                            >
+                                {item.name}
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@ import p_1 from '../assets/images/p_1.jpg'
 import p_2 from '../assets/images/p_2.jpg'
 import s_1 from '../assets/images/s_1.jpg'
 import subsidi from '../assets/images/subsidi.jpg';
+import header from '../assets/images/header.jpg';
 
 const list_perum = [
     {
@@ -102,5 +103,6 @@ export {
     list_sosmed,
     list_perum,
     list_achiev,
-    subsidi
+    subsidi,
+    header
 }

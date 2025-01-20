@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../layouts';
 import Home from '../container/Home';
+import Project from '../container/Project';
 
 // Layout components (if you have any)
 // import MainLayout from '../layouts/MainLayout';
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
             {
                 path: '',
                 element: <Home />
+            },
+            {
+                path: '/proyek',
+                element: <Project />
             },
         ]
     },
