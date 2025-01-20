@@ -6,8 +6,8 @@ const Footer = () => {
             <div className="container">
                 <div className="flex flex-wrap lg:flex-nowrap gap-4 lg:gap-10 w-[100%] justify-between py-8 px-5 lg:py-5 lg:px-5 text-white">
                     <div className="text-left w-[100%] lg:w-1/3">
-                        <div className="flex justify-center">
-                            <img src={logo_png} alt="" className="rounded-full h-[10vh] lg:h-[20vh]" />
+                        <div className="flex justify-center mt-5">
+                            <img src={logo_png} alt="" className="rounded-full h-[10vh] lg:h-[12vh]" />
                         </div>
                         <p className="my-4 mb-0 text-center font-['Inter-Bold']">PROPERTIWI GROUP</p>
                         <p className="text-center font-['Inter-Bold'] text-[12px]">-Since 2008-</p>
