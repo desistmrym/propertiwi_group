@@ -66,21 +66,21 @@ const Contact = () => {
                 />
             </div>
           </div>
-            <div className="flex justify-center">
-                <div className="mt-5 lg:mt-10">
-                    <div className='text-[30px] text-center lg:text-left font-["Work-Sans-Bold"] text-[#545454]'>
-                        HUBUNGI KAMI
-                    </div>
-                    <div className="flex justify-center mt-2">
-                        <div className="border-t-[5px] border-[#dbbc42] w-[30%] rounded-full"></div>
-                    </div>
+          <div className="flex justify-center">
+              <div className="mt-5 lg:mt-10">
+                  <div className='text-[30px] text-center lg:text-left font-["Work-Sans-Bold"] text-[#545454]'>
+                      HUBUNGI KAMI
+                  </div>
+                  <div className="flex justify-center mt-2">
+                      <div className="border-t-[5px] border-[#dbbc42] w-[30%] rounded-full"></div>
+                  </div>
 
-                </div>
-            </div>
-            <p className="mt-5">
-                Untuk informasi lebih lanjut tentang perusahaan atau layanan kami, silakan untuk menghubungi kami melalui:
-            </p>
-          <div className="mt-5 border-2 border-[#dbbc42] rounded-xl p-5">
+              </div>
+          </div>
+          <p className="mt-5">
+              Untuk informasi lebih lanjut tentang perusahaan atau layanan kami, silakan untuk menghubungi kami melalui:
+          </p>
+          <div className="my-5 border-2 border-[#dbbc42] rounded-xl p-5">
             <div className="flex gap-5 py-2">
                 <input type="text" name="nama" className="rounded-xl px-5 py-1 bg-transparent border border-[#545454] w-full" placeholder="Isi Nama Anda" />
             </div>
