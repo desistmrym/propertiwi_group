@@ -3,9 +3,11 @@ import {
     list_perum,
     subsidi,
   } from "../assets/list_image";
+import { useNavigate } from "react-router-dom";
 
 const Perumahan = () => {
-    const [data_perum, set_data_perum] = useState([]);
+  const navigate = useNavigate()
+  const [data_perum, set_data_perum] = useState([]);
   const [isPerum, setIsPerum] = useState("Tangerang");
 
   useEffect(() => {
@@ -52,7 +54,7 @@ const Perumahan = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-5 lg:py-8">
           {data_perum.length > 0 &&
             data_perum.map((item, x) => (
-              <div key={x} className="border-2 border-black rounded-xl">
+              <div key={x} className="border-2 border-black rounded-xl" onClick={() => navigate('/proyek/'+item.slug)}>
                 <div className="relative">
                   {item.marker === "subsidi" ? (
                     <img

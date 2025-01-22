@@ -4,9 +4,7 @@ import Home from '../container/Home';
 import Project from '../container/Project';
 import About from '../container/Tentang-Kami';
 import Contact from '../container/Contact';
-
-// Layout components (if you have any)
-// import MainLayout from '../layouts/MainLayout';
+import DetailProject from '../container/DetailProject';
 
 const router = createBrowserRouter([
     {
@@ -20,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: '/proyek',
                 element: <Project />
+            },
+            {
+                path: '/proyek/:slug',
+                element: <DetailProject />
             },
             {
                 path: '/tentang-kami',
