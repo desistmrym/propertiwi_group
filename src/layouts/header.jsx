@@ -2,6 +2,8 @@ import { useState } from "react";
 import { logo } from "../assets/list_image";
 import { list_header } from "../assets/list_data";
 import { useNavigate } from "react-router-dom";
+import { HiOutlineMenu } from "react-icons/hi";
+import { MdClose } from "react-icons/md";
 
 const Header = () => {
     const navigate = useNavigate()
@@ -25,8 +27,8 @@ const Header = () => {
                                 key={key}
                                 href="#"
                                 onClick={(e) => {
-                                e.preventDefault();
-                                navigate(`${item.link}`);
+                                    e.preventDefault();
+                                    navigate(`${item.link}`);
                                 }}
                                 className={`hover:text-[#dbbc42] transition-all duration-300 ${
                                     activeLink === item.link ? 'text-[#dbbc42]' : ''
@@ -43,9 +45,11 @@ const Header = () => {
                     className="lg:hidden relative z-[9] p-2 bg-transparent focus:outline-none focus:border-none"
                     onClick={toggleMenu}
                 >
-                    <span className="block w-6 h-1 bg-white mb-1"></span>
-                    <span className="block w-6 h-1 bg-white mb-1"></span>
-                    <span className="block w-6 h-1 bg-white"></span>
+                    {!isOpen ?
+                        <HiOutlineMenu className="text-2xl" />
+                    :
+                        <MdClose className="text-2xl" />
+                    }
                 </button>
 
                 <div className="flex gap-4 pl-3 mt-1 relative z-[9]">
@@ -57,26 +61,22 @@ const Header = () => {
                     className={`lg:flex lg:items-center lg:space-x-4 absolute top-0 right-0 w-full h-screen bg-gray-800 bg-opacity-90 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
                 >
                     <ul className="flex flex-col items-start space-y-6 mt-20 mx-5">
-                        <li>
-                            <a href="#home" className="text-white text-xl" onClick={() => setIsOpen(false)}>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#about" className="text-white text-xl" onClick={() => setIsOpen(false)}>
-                                Proyek
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#services" className="text-white text-xl" onClick={() => setIsOpen(false)}>
-                                Tentang Kami
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" className="text-white text-xl" onClick={() => setIsOpen(false)}>
-                                Kontak & Karir
-                            </a>
-                        </li>
+                        {list_header.map((item, key) =>
+                            <li>
+                                <a 
+                                    key={key}
+                                    href="#"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        navigate(`${item.link}`);
+                                        setIsOpen(false)
+                                    }} 
+                                    className="text-white text-xl"
+                                >
+                                    {item.name}
+                                </a>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>
