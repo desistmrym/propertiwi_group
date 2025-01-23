@@ -8,6 +8,11 @@
 }
 
 @font-face {
+  font-family: 'Work-Sans-Italic';
+  src: url('./assets/font/Work_Sans/static/WorkSans-Italic.ttf');
+}
+
+@font-face {
   font-family: 'Work-Sans-Bold';
   src: url('./assets/font/Work_Sans/static/WorkSans-Bold.ttf');
 }

@@ -27,6 +27,39 @@ import header_1 from '../assets/images/header_1.jpg';
 import marker_subsidi from '../assets/images/marker_subsidi.jpg'
 import marker_soldout from '../assets/images/marker_soldout.jpg'
 
+const list_cover = [
+    {
+        image: cover,
+        title: 'Welcome to',
+        heading: 'PROPERTIWI GROUP'
+    }, 
+    {
+        image: tg_3,
+        title: 'PROPERTIWI GROUP',
+        heading: 'Bonisari Sarana Indah'
+    }, 
+    {
+        image: tg_1,
+        title: 'PROPERTIWI GROUP',
+        heading: 'Grand Village Sepatan'
+    }, 
+    {
+        image: tg_2,
+        title: 'PROPERTIWI GROUP',
+        heading: 'Bayur Sarana Indah'
+    }, 
+    {
+        image: bg_1,
+        title: 'PROPERTIWI GROUP',
+        heading: 'Sarana Indah Residence'
+    }, 
+    {
+        image: bg_2,
+        title: 'PROPERTIWI GROUP',
+        heading: 'Grand Residence Indah'
+    }
+]
+
 const list_perum = [
     {
         address: 'Tangerang',
@@ -177,6 +210,7 @@ export {
     youtube,
     p_1,
     p_2,
+    list_cover,
     list_sosmed,
     list_perum,
     list_achiev,

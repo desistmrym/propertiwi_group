@@ -1,21 +1,125 @@
-import {
-  cover,
-  list_sosmed,
-  list_achiev,
-} from "../assets/list_image";
+import { list_sosmed, list_achiev, list_cover } from "../assets/list_image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Perumahan from "../component/perumahan";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Home = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
       <div className="relative -mt-[16%] w-full">
-        <img
-          src={cover}
-          alt="cover"
-          className="object-cover w-full h-[50vh] lg:h-auto"
-        />
+        {/* <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={false}
+          navigation={false}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper h-[100vh]"
+        >
+          {list_cover.map((item) => (
+            <SwiperSlide>
+              <div className="absolute w-[100%] h-[100vh] z-[1]" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}></div>
+              <div className="absolute z-[2] flex justify-center items-center h-[100vh] w-[100%]">
+                <div className="container text-white lg:mt-[16rem] font-['Work-Sans-Bold']">
+                  <motion.p 
+                    initial={{ opacity: 0, marginLeft: '-3rem' }}
+                    animate={{ opacity: 1, marginLeft: 0 }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                    className="text-left text-2xl tracking-[8px]"
+                  >
+                    {item.title}
+                  </motion.p>
+                  <motion.p 
+                    initial={{ opacity: 0, marginLeft: '-3rem' }}
+                    animate={{ opacity: 1, marginLeft: 0 }}
+                    transition={{ duration: 1, delay: 1.6 }}
+                    className="text-left lg:text-[50px] mt-2"
+                  >
+                    {item.heading}
+                  </motion.p>
+                </div>
+              </div>
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+                src={item.image}
+                alt=""
+                className="object-cover rounded-xl w-[100%]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper> */}
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          pagination={false}
+          navigation={false}
+          effect="fade" // Apply fade effect
+          modules={[Autoplay, EffectFade]} // Include the EffectFade module
+          className="mySwiper h-[100vh]"
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)} // Track active slide index
+        >
+          {list_cover.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="absolute w-[100%] h-[100vh] z-[1]"
+                style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
+              ></div>
+              <div className="absolute z-[2] flex justify-center items-center h-[100vh] w-[100%]">
+                <div className="container text-white lg:mt-[16rem] font-['Work-Sans-Bold']">
+                  <motion.p
+                    initial={{ opacity: 0, marginLeft: "-3rem" }}
+                    animate={{
+                      opacity: activeIndex === index ? 1 : 0,
+                      marginLeft: activeIndex === index ? 0 : "-3rem",
+                    }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                    exit={{ opacity: 0, marginLeft: "-3rem" }}
+                    className="text-left text-lg lg:text-2xl lg:tracking-[8px]"
+                  >
+                    {item.title}
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0, marginLeft: "-3rem" }}
+                    animate={{
+                      opacity: activeIndex === index ? 1 : 0,
+                      marginLeft: activeIndex === index ? 0 : "-3rem",
+                    }}
+                    transition={{ duration: 1, delay: 1.6 }}
+                    exit={{ opacity: 0, marginLeft: "-3rem" }}
+                    className="text-left text-3xl lg:text-[60px] mt-4 lg:mt-8"
+                  >
+                    {item.heading}
+                  </motion.p>
+                </div>
+              </div>
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeIndex === index ? 1 : 0 }}
+                transition={{ duration: 2 }}
+                src={item.image}
+                alt=""
+                className="object-cover rounded-xl w-[100%] h-[100vh]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
       <div className="flex justify-center mt-10 mb-[10vh]">
         <div className="container">
@@ -46,7 +150,10 @@ const Home = () => {
               {list_achiev.map(
                 (item, index) =>
                   item.is_highlight === true && (
-                    <div key={index} className="border-2 border-[#dbbc42] cursor-pointer">
+                    <div
+                      key={index}
+                      className="border-2 border-[#dbbc42] cursor-pointer"
+                    >
                       <PhotoView key={index} src={item.image}>
                         <img
                           src={item.image}
