@@ -24,11 +24,21 @@ const Perumahan = () => {
   return (
     <div className="flex justify-center items-start">
       <div>
-        <div className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem]'>
+        <motion.div 
+          initial={{ opacity: 0, x: '-5rem' }}
+          whileInView={{ opacity: 1, x: '0' }}
+          transition={{ duration: 1.4 }}
+          className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem]'
+        >
           PROYEK PERUMAHAN
-        </div>
+        </motion.div>
         <div className="flex justify-center mt-2">
-          <div className="border-t-[5px] border-[#dbbc42] w-[20%] rounded-full"></div>
+          <motion.div 
+            initial={{ opacity: 0, x: '-5rem' }}
+            whileInView={{ opacity: 1, x: '0' }}
+            transition={{ duration: 1.4, delay: 0.5 }}
+            className="border-t-[5px] border-[#dbbc42] w-[20%] rounded-full"
+          ></motion.div>
         </div>
         <div className="flex justify-center my-10 gap-5 overflow-x-scroll scrollbar-hidden">
           <div
@@ -61,7 +71,7 @@ const Perumahan = () => {
                 onClick={() => navigate('/proyek/' + item.slug)}
                 style={{
                   boxShadow:
-                    'rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
+                    'rgba(149, 157, 165, 0.7) 0px 8px 24px',
                 }}
               >
                 <div className="relative">

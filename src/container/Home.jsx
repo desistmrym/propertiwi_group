@@ -140,7 +140,7 @@ const Home = () => {
                   duration={2} separator=","
                 />
               </div>
-              <p className="uppercase">Unit Property</p>
+              <p className="uppercase">Total Unit</p>
             </div>
             <div className="text-[#545454] text-center w-1/3">
               <div className="text-[4rem] text-gray-300">
