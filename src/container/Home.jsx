@@ -156,32 +156,61 @@ const Home = () => {
 
           <Perumahan />
 
-          <div className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'>
+          <motion.div 
+            initial={{ opacity: 0, x: '-5rem' }}
+            whileInView={{ opacity: 1, x: '0' }}
+            transition={{ duration: 1.4 }}
+            className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'
+          >
             FOLLOW SOCIAL MEDIA KAMI
-          </div>
+          </motion.div>
           <div className="flex justify-center mt-2 mb-10">
-            <div className="border-t-[5px] border-[#dbbc42] w-[30%] rounded-full"></div>
+            <motion.div 
+              initial={{ opacity: 0, x: '-5rem' }}
+              whileInView={{ opacity: 1, x: '0' }}
+              transition={{ duration: 1.4, delay: 0.5 }}
+              className="border-t-[5px] border-[#dbbc42] w-[30%] rounded-full"
+            ></motion.div>
           </div>
           <div className="flex justify-center gap-10 w-[100%] pt-8">
             {list_sosmed.map((item, key) => (
               <a key={key} href={item.link} target="_blank">
-                <img src={item.icon} alt="" className="h-20 object-contain" />
+                <motion.img 
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.5 * key }}
+                  src={item.icon} 
+                  alt="" 
+                  className="h-20 object-contain" 
+                />
               </a>
             ))}
           </div>
 
-          <div className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'>
+          <motion.div 
+            initial={{ opacity: 0, x: '-5rem' }}
+            whileInView={{ opacity: 1, x: '0' }}
+            transition={{ duration: 1.4 }}
+            className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'
+          >
             PENGHARGAAN
-          </div>
+          </motion.div>
           <div className="flex justify-center mt-2 mb-2">
-            <div className="border-t-[5px] border-[#dbbc42] w-[26%] rounded-full"></div>
+            <motion.div 
+              initial={{ opacity: 0, x: '-5rem' }}
+              whileInView={{ opacity: 1, x: '0' }}
+              transition={{ duration: 1.4, delay: 0.5 }}
+              className="border-t-[5px] border-[#dbbc42] w-[26%] rounded-full"></motion.div>
           </div>
           <div className="flex flex-wrap justify-center gap-5 w-[100%] pt-8">
             <PhotoProvider>
               {list_achiev.map(
                 (item, index) =>
                   item.is_highlight === true && (
-                    <div
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 1, delay: 0.5 * index }}
                       key={index}
                       className="border-2 border-[#dbbc42] cursor-pointer"
                     >
@@ -192,7 +221,7 @@ const Home = () => {
                           className="h-auto lg:h-48 object-contain"
                         />
                       </PhotoView>
-                    </div>
+                    </motion.div>
                   )
               )}
             </PhotoProvider>

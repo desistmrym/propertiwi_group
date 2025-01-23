@@ -41,7 +41,10 @@ const Perumahan = () => {
           ></motion.div>
         </div>
         <div className="flex justify-center my-10 gap-5 overflow-x-scroll scrollbar-hidden">
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.4, delay: 0.7 }}
             className={`${
               isPerum === "Tangerang"
                 ? "bg-[#dbbc42]"
@@ -50,8 +53,11 @@ const Perumahan = () => {
             onClick={() => handlePerum("Tangerang")}
           >
             Tangerang
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.4, delay: 0.9 }}
             className={`${
               isPerum === "Bogor"
                 ? "bg-[#dbbc42]"
@@ -60,12 +66,15 @@ const Perumahan = () => {
             onClick={() => handlePerum("Bogor")}
           >
             Bogor
-          </div>
+          </motion.div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-5 lg:py-8">
           {data_perum.length > 0 &&
             data_perum.map((item, x) => (
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.5 * x }}
                 key={x}
                 className="group rounded-xl cursor-pointer"
                 onClick={() => navigate('/proyek/' + item.slug)}
@@ -118,7 +127,7 @@ const Perumahan = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>
