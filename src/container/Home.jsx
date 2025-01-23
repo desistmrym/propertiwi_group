@@ -130,7 +130,7 @@ const Home = () => {
               <div className="text-2xl lg:text-[4rem] text-gray-300">
                 <CountUp start={0} end={moment().year() - 2008} />
               </div>
-              <p className="uppercase">Tahun</p>
+              <p className="uppercase mt-2 lg:mt-10">Tahun</p>
             </div>
             <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-gray-300">
               <div className="text-2xl lg:text-[4rem] text-gray-300">
@@ -140,7 +140,7 @@ const Home = () => {
                   duration={2} separator=","
                 />
               </div>
-              <p className="uppercase">Total Unit</p>
+              <p className="uppercase mt-2 lg:mt-10">Total Unit</p>
             </div>
             <div className="text-[#545454] text-center w-1/3">
               <div className="text-2xl lg:text-[4rem] text-gray-300">
@@ -150,7 +150,7 @@ const Home = () => {
                   duration={2} separator=","
                 />
               </div>
-              <p className="uppercase">Proyek</p>
+              <p className="uppercase mt-2 lg:mt-10">Proyek</p>
             </div>
           </div>
 
