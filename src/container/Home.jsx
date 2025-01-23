@@ -125,15 +125,15 @@ const Home = () => {
       </div>
       <div className="flex justify-center mt-10 mb-[10vh]">
         <div className="container">
-          <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] mb-[6rem]">
+          <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] mb-[3rem] lg:mb-[6rem]">
             <div className="text-[#545454] text-center w-1/3">
-              <div className="text-[4rem] text-gray-300">
+              <div className="text-2xl lg:text-[4rem] text-gray-300">
                 <CountUp start={0} end={moment().year() - 2008} />
               </div>
               <p className="uppercase">Tahun</p>
             </div>
             <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-gray-300">
-              <div className="text-[4rem] text-gray-300">
+              <div className="text-2xl lg:text-[4rem] text-gray-300">
                 <CountUp 
                   start={0}
                   end={4948}
@@ -143,7 +143,7 @@ const Home = () => {
               <p className="uppercase">Total Unit</p>
             </div>
             <div className="text-[#545454] text-center w-1/3">
-              <div className="text-[4rem] text-gray-300">
+              <div className="text-2xl lg:text-[4rem] text-gray-300">
                 <CountUp 
                   start={0}
                   end={5}

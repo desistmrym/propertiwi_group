@@ -71,7 +71,7 @@ const Header = () => {
                                         navigate(`${item.link}`);
                                         setIsOpen(false)
                                     }} 
-                                    className="text-white text-xl"
+                                    className={`${activeLink === item.link ? 'text-[#dbbc42]' : 'text-white'} text-xl`}
                                 >
                                     {item.name}
                                 </a>
