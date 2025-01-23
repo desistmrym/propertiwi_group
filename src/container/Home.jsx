@@ -16,7 +16,7 @@ const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-      <div className="relative -mt-[16%] w-full">
+      <div className="relative lg:-mt-[16%] w-full">
         {/* <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -125,7 +125,7 @@ const Home = () => {
       </div>
       <div className="flex justify-center mt-10 mb-[10vh]">
         <div className="container">
-          <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] mb-[3rem] lg:mb-[6rem]">
+          <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] lg:mt-5 mb-[3rem] lg:mb-[6rem]">
             <div className="text-[#545454] text-center w-1/3">
               <div className="text-2xl lg:text-[4rem] text-gray-300">
                 <CountUp start={0} end={moment().year() - 2008} />
