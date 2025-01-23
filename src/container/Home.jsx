@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import moment from "moment";
+import CountUp from "react-countup";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -123,6 +125,35 @@ const Home = () => {
       </div>
       <div className="flex justify-center mt-10 mb-[10vh]">
         <div className="container">
+          <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] mb-[6rem]">
+            <div className="text-[#545454] text-center w-1/3">
+              <div className="text-[4rem] text-gray-300">
+                <CountUp start={0} end={moment().year() - 2008} />
+              </div>
+              <p className="uppercase">Tahun</p>
+            </div>
+            <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-gray-300">
+              <div className="text-[4rem] text-gray-300">
+                <CountUp 
+                  start={0}
+                  end={4948}
+                  duration={2} separator=","
+                />
+              </div>
+              <p className="uppercase">Unit Property</p>
+            </div>
+            <div className="text-[#545454] text-center w-1/3">
+              <div className="text-[4rem] text-gray-300">
+                <CountUp 
+                  start={0}
+                  end={5}
+                  duration={2} separator=","
+                />
+              </div>
+              <p className="uppercase">Proyek</p>
+            </div>
+          </div>
+
           <Perumahan />
 
           <div className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'>
