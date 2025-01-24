@@ -15,7 +15,7 @@ const Header = () => {
     };
     return (
         <div className="relative z-[9] flex justify-center text-white">
-            <div className="hidden lg:flex justify-center bg-[#3033ac] w-[100%] py-4 font-['Work-Sans-Bold']">
+            <div className="hidden lg:flex justify-center bg-gradient-to-r from-black to-[#3533cd] w-[100%] py-4 lg:py-6 font-['Work-Sans-Bold']">
                 <div className="flex justify-between container">
                     <div className="flex gap-4">
                         <img src={logo} alt="logo" className="object-cover w-8 h-8 rounded-full" />
