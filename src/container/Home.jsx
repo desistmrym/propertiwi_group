@@ -17,52 +17,6 @@ const Home = () => {
   return (
     <>
       <div className="relative lg:-mt-[16%] w-full">
-        {/* <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={false}
-          navigation={false}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper h-[100vh]"
-        >
-          {list_cover.map((item) => (
-            <SwiperSlide>
-              <div className="absolute w-[100%] h-[100vh] z-[1]" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}></div>
-              <div className="absolute z-[2] flex justify-center items-center h-[100vh] w-[100%]">
-                <div className="container text-white lg:mt-[16rem] font-['Work-Sans-Bold']">
-                  <motion.p 
-                    initial={{ opacity: 0, marginLeft: '-3rem' }}
-                    animate={{ opacity: 1, marginLeft: 0 }}
-                    transition={{ duration: 1, delay: 1.2 }}
-                    className="text-left text-2xl tracking-[8px]"
-                  >
-                    {item.title}
-                  </motion.p>
-                  <motion.p 
-                    initial={{ opacity: 0, marginLeft: '-3rem' }}
-                    animate={{ opacity: 1, marginLeft: 0 }}
-                    transition={{ duration: 1, delay: 1.6 }}
-                    className="text-left lg:text-[50px] mt-2"
-                  >
-                    {item.heading}
-                  </motion.p>
-                </div>
-              </div>
-              <motion.img
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
-                src={item.image}
-                alt=""
-                className="object-cover rounded-xl w-[100%]"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper> */}
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -111,6 +65,15 @@ const Home = () => {
                   </motion.p>
                 </div>
               </div>
+              {/* <div
+                className="absolute inset-0 z-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundAttachment: 'fixed', // Apply parallax effect
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover',
+                }}
+              ></div> */}
               <motion.img
                 initial={{ opacity: 0 }}
                 animate={{ opacity: activeIndex === index ? 1 : 0 }}
@@ -127,13 +90,13 @@ const Home = () => {
         <div className="container">
           <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] lg:mt-5 mb-[3rem] lg:mb-[6rem]">
             <div className="text-[#545454] text-center w-1/3">
-              <div className="text-2xl lg:text-[4rem] text-gray-300">
+              <div className="text-2xl lg:text-[4rem] text-[#737373]">
                 <CountUp start={0} end={moment().year() - 2008} />
               </div>
               <p className="uppercase mt-2 lg:mt-10">Tahun</p>
             </div>
-            <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-gray-300">
-              <div className="text-2xl lg:text-[4rem] text-gray-300">
+            <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-[#737373]">
+              <div className="text-2xl lg:text-[4rem] text-[#737373]">
                 <CountUp 
                   start={0}
                   end={4948}
@@ -143,7 +106,7 @@ const Home = () => {
               <p className="uppercase mt-2 lg:mt-10">Total Unit</p>
             </div>
             <div className="text-[#545454] text-center w-1/3">
-              <div className="text-2xl lg:text-[4rem] text-gray-300">
+              <div className="text-2xl lg:text-[4rem] text-[#737373]">
                 <CountUp 
                   start={0}
                   end={5}

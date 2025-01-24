@@ -41,7 +41,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="mt-5 lg:mt-16">
+          <div className="my-5 lg:my-[10rem]">
             <div className='text-[30px] font-["Work-Sans-Bold"] text-[#545454]'>
               MENGAPA <span className="text-[#3033ac]">PROPERTIWI GROUP</span> ?
             </div>
