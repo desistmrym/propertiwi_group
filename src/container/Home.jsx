@@ -16,22 +16,24 @@ import { getProject } from "../api/project";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isLoad, setIsLoad] = useState(true);
+  const [isLoad, setIsLoad] = useState(false);
+  const [listAddress, setListAddress] = useState([]);
+  const [dataPerum, setDataPerum] = useState([]);
 
   useEffect(() => {
-    getAll();
+    setIsLoad(true)
+    handlePerum();
   }, [])
 
-  const getAll = () => {
-    handleProject()
-  }
-
-  const handleProject = async () => {
+  const handlePerum = async () => {
     const result = await getProject();
     try {
-      setIsLoad(false)
+      const filterAddress = [...new Set(result.map(item => item.acf.location.name))];
+      setDataPerum(result);
+      setListAddress(filterAddress);
+      setIsLoad(false);
     } catch (err) {
-      setIsLoad(false)
+      setIsLoad(false);
     }
   }
 
@@ -131,12 +133,13 @@ const Home = () => {
                 </div>
               </div>
 
-              <Perumahan />
+              <Perumahan listAddress={listAddress} dataPerum={dataPerum} />
 
               <motion.div 
                 initial={{ opacity: 0, x: '-5rem' }}
                 whileInView={{ opacity: 1, x: '0' }}
                 transition={{ duration: 1.4 }}
+                viewport={{ once: true }}
                 className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'
               >
                 FOLLOW SOCIAL MEDIA KAMI
@@ -146,6 +149,7 @@ const Home = () => {
                   initial={{ opacity: 0, x: '-5rem' }}
                   whileInView={{ opacity: 1, x: '0' }}
                   transition={{ duration: 1.4, delay: 0.5 }}
+                  viewport={{ once: true }}
                   className="border-t-[5px] border-[#dbbc42] w-[30%] rounded-full"
                 ></motion.div>
               </div>
@@ -156,6 +160,7 @@ const Home = () => {
                       initial={{ opacity: 0, scale: 0 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 1, delay: 0.5 * key }}
+                      viewport={{ once: true }}
                       src={item.icon} 
                       alt="" 
                       className="h-20 object-contain" 
@@ -168,6 +173,7 @@ const Home = () => {
                 initial={{ opacity: 0, x: '-5rem' }}
                 whileInView={{ opacity: 1, x: '0' }}
                 transition={{ duration: 1.4 }}
+                viewport={{ once: true }}
                 className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'
               >
                 PENGHARGAAN
@@ -177,6 +183,7 @@ const Home = () => {
                   initial={{ opacity: 0, x: '-5rem' }}
                   whileInView={{ opacity: 1, x: '0' }}
                   transition={{ duration: 1.4, delay: 0.5 }}
+                  viewport={{ once: true }}
                   className="border-t-[5px] border-[#dbbc42] w-[26%] rounded-full"></motion.div>
               </div>
               <div className="flex flex-wrap justify-center gap-5 w-[100%] pt-8">
@@ -188,6 +195,7 @@ const Home = () => {
                           initial={{ opacity: 0, scale: 0 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 1, delay: 0.5 * index }}
+                          viewport={{ once: true }}
                           key={index}
                           className="border-2 border-[#dbbc42] cursor-pointer"
                         >

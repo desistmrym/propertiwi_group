@@ -62,9 +62,8 @@ const Header = () => {
                 >
                     <ul className="flex flex-col items-start space-y-6 mt-20 mx-5">
                         {list_header.map((item, key) =>
-                            <li>
+                            <li key={key}>
                                 <a 
-                                    key={key}
                                     href="#"
                                     onClick={(e) => {
                                         e.preventDefault();
