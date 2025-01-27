@@ -123,8 +123,8 @@ const DetailProject = () => {
                   </div>
                   {detail && "acf" in detail && detail.acf.specification !== false ? 
                     <div className="text-black mt-8 lg:mt-10">
-                        <p className="font-['Inter'] font-bold underline">Spesifikasi :</p>
-                        <div className="my-1">
+                        <p className="font-['Inter'] text-xl font-bold underline">Spesifikasi :</p>
+                        <div className="my-3">
                           <table>
                             <thead></thead>
                             <tbody>
@@ -144,7 +144,7 @@ const DetailProject = () => {
                   <div className="mt-8 lg:mt-10 flex flex-wrap lg:flex-nowrap  gap-5 lg:gap-12">
                     {detail && "acf" in detail && detail.acf.denah_rumah !== false ? 
                       <div>
-                        <p className="font-['Inter'] font-bold underline">Denah Rumah :</p>
+                        <p className="font-['Inter'] text-xl font-bold underline">Denah Rumah :</p>
                         <ul className="list-disc mt-3 pl-5 font-['Inter']">
                           {detail.acf.denah_rumah.map((item, key) => 
                             <li key={key} className="py-1">{item.spec}</li>
