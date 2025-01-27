@@ -1,5 +1,3 @@
-import axiosInstance from ".";
-
 const base_name = 'https://propertiwigroup.co.id/cms/wp-json/wp/v2/project';
 const _acf = 'acf_format=standard';
 const _field = '_fields=id,modified,slug,status,title,acf'
