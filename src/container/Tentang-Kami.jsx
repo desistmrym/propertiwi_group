@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { list_about } from "../assets/list_data";
 import { logo } from "../assets/list_image";
 import CoverHeader from "../component/cover_header";
 import { PhotoProvider, PhotoView } from "react-photo-view";
