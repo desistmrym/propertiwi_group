@@ -141,7 +141,7 @@ const About = () => {
                           
                           <div className='flex flex-wrap gap-6 items-center justify-center lg:pt-10'>
                             {about.acf.why_propertiwi_group.slice(3).length > 0 ? about.acf.why_propertiwi_group.slice(3).map((item, key) => 
-                                <div key={key} className="flex-[0_0_20%]">
+                                <div key={key} className="flex-[0_0_100%] lg:flex-[0_0_20%]">
                                   <div className="flex flex-wrap justify-center py-2">
                                     <img
                                       src={item.icon}
