@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'Inter';
+  src: url('./assets/font/Inter/Inter-VariableFont_opsz\,wght.ttf');
+}
+
+@font-face {
   font-family: 'Work_Sans';
   src: url('./assets/font/Work_Sans/static/WorkSans-Regular.ttf');
 }
@@ -10,6 +15,11 @@
 @font-face {
   font-family: 'Work-Sans-Italic';
   src: url('./assets/font/Work_Sans/static/WorkSans-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Work-Sans-SemiBold';
+  src: url('./assets/font/Work_Sans/static/WorkSans-SemiBold.ttf');
 }
 
 @font-face {

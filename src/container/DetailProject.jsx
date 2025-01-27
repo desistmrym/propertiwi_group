@@ -90,55 +90,62 @@ const DetailProject = () => {
                   : null}
 
                 <div className="mt-5 text-left">
-                  <h2 className="uppercase text-xl lg:text-3xl font-['Work-Sans-Bold']">
+                  <h2 className="uppercase text-xl lg:text-3xl font-['Inter'] font-bold">
                     {detail && "acf" in detail && detail.acf.name}
                   </h2>
                   <div className="text-[#545454]">
                     <p className="my-3" dangerouslySetInnerHTML={{ __html: detail && "acf" in detail && detail.acf.description }}></p>
-                    <p className="mt-5">
-                      <span className="font-['Work-Sans-Bold'] text-black">
+                    <p className="mt-5 lg:mt-10">
+                      <span className="font-['Inter'] font-bold text-black">
                         Alamat :
                       </span>{" "}
                       {detail && "acf" in detail && detail.acf.alamat}
                     </p>
                     {detail && "acf" in detail && detail.acf.luas_proyek !== "" ? 
                       <p className="mt-3">
-                        <span className="font-['Work-Sans-Bold'] text-black">
+                        <span className="font-['Inter'] font-bold text-black">
                           Luas Proyek :
                         </span>{" "}
                         {detail.acf.luas_proyek}
                       </p>
                     : null}
                     <p className="mt-3">
-                      <span className="font-['Work-Sans-Bold'] text-black">
+                      <span className="font-['Inter'] font-bold text-black">
                         Total Unit :
                       </span>{" "}
                       {detail && "acf" in detail && detail.acf.total_unit}
                     </p>
-                    <div className="mt-5">
-                      <span className="bg-[#ffed00] py-2 px-4 rounded-xl text-black font-['Work-Sans-Bold']">
+                    <div className="mt-8 lg:mt-10">
+                      <span className="bg-[#ffed00] py-2 px-4 rounded-xl text-black font-['Inter'] font-bold">
                         Tipe {detail && "acf" in detail && detail.acf.tipe}
                       </span>
                     </div>
                   </div>
                   {detail && "acf" in detail && detail.acf.specification !== false ? 
-                    <div className="text-black mt-5 lg:mt-8">
-                        <p className="font-['Work-Sans-Bold']">Spesifikasi :</p>
+                    <div className="text-black mt-8 lg:mt-10">
+                        <p className="font-['Inter'] font-bold underline">Spesifikasi :</p>
                         <div className="my-1">
-                          {detail.acf.specification.map((item, key) => 
-                            <p key={key} className="py-1">
-                              {item.spec} : {item.value}
-                            </p>
-                          )}
+                          <table>
+                            <thead></thead>
+                            <tbody>
+                              {detail.acf.specification.map((item, key) =>
+                                <tr key={key} className="text-[14px]">
+                                    <td className="font-['Inter'] font-bold">{item.spec}</td>
+                                    <td className="pl-3 lg:pl-5">:</td>
+                                    <td className="pl-3">{item.value}</td>
+                                </tr>
+                              )}
+                            </tbody>
+                          </table>
                         </div>
                     </div>
                   : null}
 
-                  <div className="mt-5 flex flex-wrap lg:flex-nowrap  gap-5 lg:gap-10">
+                  <div className="mt-8 lg:mt-10 flex flex-wrap lg:flex-nowrap  gap-5 lg:gap-12">
                     {detail && "acf" in detail && detail.acf.denah_rumah !== false ? 
                       <div>
-                        <p className="font-['Work-Sans-Bold']">Denah Rumah :</p>
-                        <ul className="list-disc mt-3 pl-5">
+                        <p className="font-['Inter'] font-bold underline">Denah Rumah :</p>
+                        <ul className="list-disc mt-3 pl-5 font-['Inter']">
                           {detail.acf.denah_rumah.map((item, key) => 
                             <li key={key} className="py-1">{item.spec}</li>
                           )}
@@ -159,7 +166,7 @@ const DetailProject = () => {
             </div>
             <div className="w-[100%] mt-10 lg:mt-0 lg:w-1/3 lg:px-5">
               <div className="border-[3px] w-[100%] border-[#dbbc42] rounded-xl">
-                <div className="p-4 mt-3">
+                <div className="p-4 mt-3 font-['Inter']">
                   <a
                     href={detail && "acf" in detail && detail.acf.google_maps !== '' ? detail.acf.google_maps : '#'}
                     target="_blank"
@@ -192,7 +199,7 @@ const DetailProject = () => {
                     : null}
                   </div>
 
-                  <div className='mt-5 lg:mt-10 text-2xl text-left font-["Work-Sans-Bold"] text-[#545454]'>
+                  <div className='mt-5 lg:mt-10 text-2xl text-left font-["Inter"] font-bold text-[#545454]'>
                     KEUNGGULAN
                   </div>
                   <div className="mt-2">

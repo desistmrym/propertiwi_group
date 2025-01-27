@@ -1,4 +1,4 @@
-import { cover, list_cover } from "../assets/list_image";
+import { cover } from "../assets/list_image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Perumahan from "../component/perumahan";
