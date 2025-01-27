@@ -70,7 +70,7 @@ const DetailProject = () => {
                         <img  
                           src={detail.acf.logo}
                           alt=""
-                          className="h-10 lg:h-20"
+                          className="h-16 lg:h-20"
                         />
                       : null} 
                       {"value" in detail.acf.project_status && detail.acf.project_status.value === 'sold_out' ?
@@ -134,7 +134,7 @@ const DetailProject = () => {
                     </div>
                   : null}
 
-                  <div className="mt-5 flex gap-5 lg:gap-10">
+                  <div className="mt-5 flex flex-wrap lg:flex-nowrap  gap-5 lg:gap-10">
                     {detail && "acf" in detail && detail.acf.denah_rumah !== false ? 
                       <div>
                         <p className="font-['Work-Sans-Bold']">Denah Rumah :</p>
@@ -150,7 +150,7 @@ const DetailProject = () => {
                       <img 
                         src={detail.acf.denah_rumah_image}
                         alt="Denah Rumah"
-                        className="h-[50vh] object-contain"
+                        className="h-[50vh] object-contain w-[100%] lg:w-auto"
                       />
                     : null}
                   </div>
