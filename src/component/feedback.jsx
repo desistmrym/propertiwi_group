@@ -102,8 +102,8 @@ const Feedback = () => {
             {error.name}
           </div>
         )}
-        <div className="flex gap-2 lg:gap-5 py-2">
-          <div className="flex w-1/2">
+        <div className="flex flex-wrap lg:flex-nowrap gap-2 lg:gap-5 py-2">
+          <div className="flex w-full lg:w-1/2">
             <div className="w-full">
               <input
                 type="email"
@@ -123,7 +123,7 @@ const Feedback = () => {
               )}
             </div>
           </div>
-          <div className="flex w-1/2">
+          <div className="flex w-full lg:w-1/2">
             <div className="w-full">
               <input
                 type="number"
