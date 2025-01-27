@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { list_about } from "../assets/list_data";
-import { list_achiev, logo, why } from "../assets/list_image";
+import { logo } from "../assets/list_image";
 import CoverHeader from "../component/cover_header";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { getAward, getBanner, getInformation, getParticipant } from "../api/information";
-import { div } from "framer-motion/client";
 import Loading from "../component/loading";
 
 const About = () => {

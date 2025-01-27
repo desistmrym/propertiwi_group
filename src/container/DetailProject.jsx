@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { list_perum } from "../assets/list_image";
 import { FaMapLocationDot } from "react-icons/fa6";
 import QRCode from "react-qr-code";
 import { getProjectBySlug } from "../api/project";
@@ -135,7 +134,7 @@ const DetailProject = () => {
                     </div>
                   : null}
 
-                  <div className="mt-5 flex gap-5">
+                  <div className="mt-5 flex gap-5 lg:gap-10">
                     {detail && "acf" in detail && detail.acf.denah_rumah !== false ? 
                       <div>
                         <p className="font-['Work-Sans-Bold']">Denah Rumah :</p>
@@ -151,6 +150,7 @@ const DetailProject = () => {
                       <img 
                         src={detail.acf.denah_rumah_image}
                         alt="Denah Rumah"
+                        className="h-[50vh] object-contain"
                       />
                     : null}
                   </div>

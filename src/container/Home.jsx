@@ -1,4 +1,4 @@
-import { list_sosmed, list_achiev, list_cover } from "../assets/list_image";
+import { cover, list_cover } from "../assets/list_image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Perumahan from "../component/perumahan";
@@ -13,17 +13,27 @@ import moment from "moment";
 import CountUp from "react-countup";
 import Loading from "../component/loading";
 import { getProject } from "../api/project";
+import { getAward, getContact, getParticipant } from "../api/information";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoad, setIsLoad] = useState(false);
   const [listAddress, setListAddress] = useState([]);
   const [dataPerum, setDataPerum] = useState([]);
+  const [sosmed, setSosmed] = useState([]);
+  const [achiev, setAchiev] = useState([]);
 
   useEffect(() => {
     setIsLoad(true)
-    handlePerum();
+    handleData();
   }, [])
+
+  const handleData = async () => {
+    await handlePerum()
+    await handleContact()
+    await handleAchiev()
+    setIsLoad(false);
+  }
 
   const handlePerum = async () => {
     const result = await getProject();
@@ -34,6 +44,32 @@ const Home = () => {
       setIsLoad(false);
     } catch (err) {
       setIsLoad(false);
+    }
+  }
+
+  const handleContact = async () => {
+    const result = await getContact()
+    try {
+      if (result.length > 0) {
+        const data = result[0]
+        if ("acf" in data) {
+          setSosmed(data.acf.social_media)
+        }
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleAchiev = async () => {
+    const result = await getAward();
+
+    try {
+      if (result.length > 0) {
+        setAchiev(result)
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -56,7 +92,7 @@ const Home = () => {
               className="mySwiper h-[100vh] lg:h-[80vh] lg:-mt-20"
               onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)} // Track active slide index
             >
-              {list_cover.map((item, index) => (
+              {dataPerum.length > 0 && dataPerum.map((item, index) => (
                 <SwiperSlide key={index}>
                   <div
                     className="absolute w-[100%] h-[100vh] z-[1]"
@@ -74,7 +110,7 @@ const Home = () => {
                         exit={{ opacity: 0, marginLeft: "-3rem" }}
                         className="text-left text-lg lg:text-2xl lg:tracking-[8px]"
                       >
-                        {item.title}
+                        PROPERTIWI GROUP
                       </motion.p>
                       <motion.p
                         initial={{ opacity: 0, marginLeft: "-3rem" }}
@@ -86,7 +122,7 @@ const Home = () => {
                         exit={{ opacity: 0, marginLeft: "-3rem" }}
                         className="text-left text-3xl lg:text-[60px] mt-4 lg:mt-8"
                       >
-                        {item.heading}
+                        {item.acf.name}
                       </motion.p>
                     </div>
                   </div>
@@ -94,7 +130,7 @@ const Home = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: activeIndex === index ? 1 : 0 }}
                     transition={{ duration: 2 }}
-                    src={item.image}
+                    src={item.acf.image_banner.length > 0 ? item.acf.image_banner[0].url : cover}
                     alt=""
                     className="object-cover lg:object-center rounded-xl w-[100%] h-[100vh] lg:h-[80vh]"
                   />
@@ -154,7 +190,7 @@ const Home = () => {
                 ></motion.div>
               </div>
               <div className="flex justify-center gap-10 w-[100%] pt-8">
-                {list_sosmed.map((item, key) => (
+                {sosmed.map((item, key) => (
                   <a key={key} href={item.link} target="_blank">
                     <motion.img 
                       initial={{ opacity: 0, scale: 0 }}
@@ -188,26 +224,24 @@ const Home = () => {
               </div>
               <div className="flex flex-wrap justify-center gap-5 w-[100%] pt-8">
                 <PhotoProvider>
-                  {list_achiev.map(
+                  {achiev.map(
                     (item, index) =>
-                      item.is_highlight === true && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 1, delay: 0.5 * index }}
-                          viewport={{ once: true }}
-                          key={index}
-                          className="border-2 border-[#dbbc42] cursor-pointer"
-                        >
-                          <PhotoView key={index} src={item.image}>
-                            <img
-                              src={item.image}
-                              alt=""
-                              className="h-auto lg:h-48 object-contain"
-                            />
-                          </PhotoView>
-                        </motion.div>
-                      )
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.5 * index }}
+                        viewport={{ once: true }}
+                        key={index}
+                        className="border-2 border-[#dbbc42] cursor-pointer"
+                      >
+                        <PhotoView key={index} src={item.acf.certificate}>
+                          <img
+                            src={item.acf.certificate}
+                            alt=""
+                            className="h-auto lg:h-48 object-contain"
+                          />
+                        </PhotoView>
+                      </motion.div>
                   )}
                 </PhotoProvider>
               </div>

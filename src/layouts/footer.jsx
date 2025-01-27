@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { facebook, list_sosmed, logo_png } from "../assets/list_image";
+import { logo_png } from "../assets/list_image";
 import { getContact } from "../api/information";
 
 const Footer = () => {
