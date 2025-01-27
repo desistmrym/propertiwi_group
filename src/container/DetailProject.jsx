@@ -129,7 +129,7 @@ const DetailProject = () => {
                             <thead></thead>
                             <tbody>
                               {detail.acf.specification.map((item, key) =>
-                                <tr key={key} className="text-[14px]">
+                                <tr key={key}>
                                     <td className="font-['Inter'] font-bold">{item.spec}</td>
                                     <td className="pl-3 lg:pl-5">:</td>
                                     <td className="pl-3">{item.value}</td>
