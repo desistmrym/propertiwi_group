@@ -5,6 +5,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { getContact } from "../api/information";
 import Loading from "../component/loading";
+import Feedback from "../component/feedback";
 
 const Contact = () => {
   const [contact, setContact] = useState({});
@@ -108,29 +109,7 @@ const Contact = () => {
                   <p className="mt-5">
                       Untuk informasi lebih lanjut tentang perusahaan atau layanan kami, silakan untuk menghubungi kami melalui:
                   </p>
-                  <div className="my-5 border-2 border-[#dbbc42] rounded-xl p-5">
-                    <div className="flex gap-5 py-2">
-                        <input type="text" name="nama" className="rounded-xl px-5 py-1 bg-transparent border border-[#545454] w-full" placeholder="Isi Nama Anda" />
-                    </div>
-                    <div className="flex gap-2 lg:gap-5 py-2">
-                        <div className="flex w-1/2">
-                            <input type="email" name="email" className="rounded-xl px-5 py-1 bg-transparent border border-[#545454] w-full" placeholder="Isi Email Anda" />
-                        </div>
-                        <div className="flex w-1/2">
-                            <input type="number" name="phone" className="rounded-xl px-5 py-1 bg-transparent border border-[#545454] w-full" placeholder="Isi No Telepon / HP Anda" />
-                        </div>
-                    </div>
-                    <div className="flex gap-5 py-2">
-                        <input type="text" name="subject" className="rounded-xl px-5 py-1 bg-transparent border border-[#545454] w-full" placeholder="Isi Subject Anda" />
-                    </div>
-                    <div className="py-2">
-                        <textarea type="text" name="message" className="rounded-xl px-5 py-1 bg-transparent border border-[#545454] w-full h-[10vh]" placeholder="Isi Message Anda"></textarea>
-                    </div>
-
-                    <div className="mt-1 text-left">
-                        <button className="bg-[#dbbc42] border border-[#dbbc42] py-2 px-10 text-white font-['Work-Sans-Bold'] hover:bg-transparent hover:border-[#dbbc42] hover:text-[#dbbc42] focus:outline-none">Kirim</button>
-                    </div>
-                  </div>
+                  <Feedback />
                 </div>
               </div>
             : null}

@@ -52,10 +52,24 @@ const getContact = () => {
     })
 }
 
+const postFeedback = (body) => {
+    return fetch('https://propertiwigroup.co.id/cms/wp-json/contact-form-7/v1/contact-forms/139/feedback', {
+        method: 'POST',
+        body: body
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => {
+        return error;
+    });
+}
+
 export {
     getBanner,
     getInformation,
     getAward,
     getParticipant,
-    getContact
+    getContact,
+    postFeedback
 }
