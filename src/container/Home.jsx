@@ -13,7 +13,7 @@ import moment from "moment";
 import CountUp from "react-countup";
 import Loading from "../component/loading";
 import { getProject } from "../api/project";
-import { getAward, getContact, getParticipant } from "../api/information";
+import { getAward, getContact } from "../api/information";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -106,7 +106,7 @@ const Home = () => {
                           opacity: activeIndex === index ? 1 : 0,
                           marginLeft: activeIndex === index ? 0 : "-3rem",
                         }}
-                        transition={{ duration: 1, delay: 1.2 }}
+                        transition={{ duration: 0.5, delay: 1.2 }}
                         exit={{ opacity: 0, marginLeft: "-3rem" }}
                         className="text-left text-lg lg:text-2xl lg:tracking-[8px]"
                       >
@@ -118,7 +118,7 @@ const Home = () => {
                           opacity: activeIndex === index ? 1 : 0,
                           marginLeft: activeIndex === index ? 0 : "-3rem",
                         }}
-                        transition={{ duration: 1, delay: 1.6 }}
+                        transition={{ duration: 0.5, delay: 1.4 }}
                         exit={{ opacity: 0, marginLeft: "-3rem" }}
                         className="text-left text-3xl lg:text-[60px] mt-4 lg:mt-8"
                       >
@@ -174,7 +174,7 @@ const Home = () => {
               <motion.div 
                 initial={{ opacity: 0, x: '-5rem' }}
                 whileInView={{ opacity: 1, x: '0' }}
-                transition={{ duration: 1.4 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
                 className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'
               >
@@ -184,7 +184,7 @@ const Home = () => {
                 <motion.div 
                   initial={{ opacity: 0, x: '-5rem' }}
                   whileInView={{ opacity: 1, x: '0' }}
-                  transition={{ duration: 1.4, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
                   className="border-t-[5px] border-[#dbbc42] w-[30%] rounded-full"
                 ></motion.div>
@@ -195,7 +195,7 @@ const Home = () => {
                     <motion.img 
                       initial={{ opacity: 0, scale: 0 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 1, delay: 0.5 * key }}
+                      transition={{ duration: 0.5, delay: 0.2 * key }}
                       viewport={{ once: true }}
                       src={item.icon} 
                       alt="" 
@@ -208,7 +208,7 @@ const Home = () => {
               <motion.div 
                 initial={{ opacity: 0, x: '-5rem' }}
                 whileInView={{ opacity: 1, x: '0' }}
-                transition={{ duration: 1.4 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
                 className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem] mt-[10rem]'
               >
@@ -218,7 +218,7 @@ const Home = () => {
                 <motion.div 
                   initial={{ opacity: 0, x: '-5rem' }}
                   whileInView={{ opacity: 1, x: '0' }}
-                  transition={{ duration: 1.4, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
                   className="border-t-[5px] border-[#dbbc42] w-[26%] rounded-full"></motion.div>
               </div>
@@ -229,7 +229,7 @@ const Home = () => {
                       <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.5 * index }}
+                        transition={{ duration: 0.5, delay: 0.2 * index }}
                         viewport={{ once: true }}
                         key={index}
                         className="border-2 border-[#dbbc42] cursor-pointer"

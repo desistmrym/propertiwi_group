@@ -25,7 +25,7 @@ const Perumahan = ({ listAddress, dataPerum }) => {
         <motion.div 
           initial={{ opacity: 0, x: '-5rem' }}
           whileInView={{ opacity: 1, x: '0' }}
-          transition={{ duration: 1.4 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className='text-[30px] font-["Work-Sans-Bold"] tracking-[.04rem]'
         >
@@ -35,7 +35,7 @@ const Perumahan = ({ listAddress, dataPerum }) => {
           <motion.div 
             initial={{ opacity: 0, x: '-5rem' }}
             whileInView={{ opacity: 1, x: '0' }}
-            transition={{ duration: 1.4, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: true }}
             className="border-t-[5px] border-[#dbbc42] w-[20%] rounded-full"
           ></motion.div>
@@ -46,7 +46,7 @@ const Perumahan = ({ listAddress, dataPerum }) => {
               key={key}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.4, delay: 0.2 * key }}
+              transition={{ duration: 0.8, delay: 0.1 * key }}
               viewport={{ once: true }}
               className={`${
                 isPerum === item
@@ -65,7 +65,7 @@ const Perumahan = ({ listAddress, dataPerum }) => {
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.1 * x }}
+                transition={{ duration: 0.9, delay: 0.1 * x }}
                 viewport={{ once: true }}
                 key={x}
                 className="group rounded-xl cursor-pointer"
@@ -77,11 +77,6 @@ const Perumahan = ({ listAddress, dataPerum }) => {
               >
                 <div className="relative">
                   {item.acf.project_status.value !== 'sold_out' ? (
-                    // <img
-                    //   src={subsidi}
-                    //   alt="subsidi"
-                    //   className="absolute -left-[.1rem] z-[1] top-6 m-auto h-[5vh] lg:h-[6vh]"
-                    // />
                     <div className="absolute z-[1] top-6 m-auto h-[5vh] lg:h-[7vh] w-[60%]">
                       <div className="bg-[#d0140b] py-2 px-5 text-left text-white font-['Eastman-Grotesque-Bold'] text-[18px] lg:text-[1.5rem] rounded-r-lg">
                         {item.acf.project_status.label}
