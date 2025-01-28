@@ -40,7 +40,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div className="fixed w-[100%] flex justify-start lg:hidden bg-[#3033ac] py-4 container font-['Work-Sans-Bold']">
+            <div className="fixed w-[100%] flex justify-start lg:hidden bg-gradient-to-r from-black to-[#3533cd] py-4 container font-['Work-Sans-Bold']">
                 <button
                     className="lg:hidden relative z-[9] p-2 bg-transparent focus:outline-none focus:border-none"
                     onClick={toggleMenu}
