@@ -12,6 +12,16 @@ const getBanner = () => {
     })
 }
 
+const getBannerBySlug = (slug) => {
+    return fetch(base_name+'page-detail'+'?'+_acf+'&'+_field + '&slug='+slug)
+    .then(response => {
+        return response.json()
+    })
+    .catch(err => {
+        return err;
+    })
+}
+
 const getInformation = () => {
     return fetch(base_name+'information'+'?'+_acf+'&'+_field)
     .then(response => {
@@ -67,6 +77,7 @@ const postFeedback = (body) => {
 
 export {
     getBanner,
+    getBannerBySlug,
     getInformation,
     getAward,
     getParticipant,

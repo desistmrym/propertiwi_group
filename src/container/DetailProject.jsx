@@ -57,7 +57,7 @@ const DetailProject = () => {
                     <img
                       src={item.url}
                       alt=""
-                      className="object-cover rounded-xl w-[100%] h-[20vh] lg:h-[40vh]"
+                      className="object-cover rounded-xl w-[100%] h-[25vh] lg:h-[50vh]"
                     />
                   </SwiperSlide>
                 ))}
@@ -94,7 +94,7 @@ const DetailProject = () => {
                     {detail && "acf" in detail && detail.acf.name}
                   </h2>
                   <div className="text-[#545454]">
-                    <p className="my-3" dangerouslySetInnerHTML={{ __html: detail && "acf" in detail && detail.acf.description }}></p>
+                    <div className="my-3 text-justify lg:text-left" dangerouslySetInnerHTML={{ __html: detail && "acf" in detail && detail.acf.description }}></div>
                     <p className="mt-5 lg:mt-10">
                       <span className="font-['Inter'] font-bold text-black">
                         Alamat :

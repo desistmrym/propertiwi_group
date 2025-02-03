@@ -13,11 +13,13 @@ import moment from "moment";
 import CountUp from "react-countup";
 import Loading from "../component/loading";
 import { getProject } from "../api/project";
-import { getAward, getContact } from "../api/information";
+import { getAward, getBannerBySlug, getContact, getInformation } from "../api/information";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoad, setIsLoad] = useState(false);
+  const [banner, setBanner] = useState([]);
+  const [info, setInfo] = useState([]);
   const [listAddress, setListAddress] = useState([]);
   const [dataPerum, setDataPerum] = useState([]);
   const [sosmed, setSosmed] = useState([]);
@@ -29,10 +31,34 @@ const Home = () => {
   }, [])
 
   const handleData = async () => {
+    await handleBanner()
+    await handleInfo()
     await handlePerum()
     await handleContact()
     await handleAchiev()
     setIsLoad(false);
+  }
+
+  const handleBanner = async () => {
+    const result = await getBannerBySlug('home');
+    try {
+      if (result.length > 0) {
+        setBanner(result[0].acf.header_images)
+      }
+    } catch (err) {
+      setIsLoad(false)
+    }
+  }
+
+  const handleInfo = async () => {
+    const result = await getInformation();
+    try {
+      if (result.length > 0) {
+        setInfo(result)
+      }
+    } catch (err) {
+      setIsLoad(false)
+    }
   }
 
   const handlePerum = async () => {
@@ -92,7 +118,7 @@ const Home = () => {
               className="mySwiper h-[100vh] lg:h-[80vh] lg:-mt-20"
               onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)} // Track active slide index
             >
-              {dataPerum.length > 0 && dataPerum.map((item, index) => (
+              {banner.length > 0 && banner.map((item, index) => (
                 <SwiperSlide key={index}>
                   <div
                     className="absolute w-[100%] h-[100vh] z-[1]"
@@ -110,7 +136,7 @@ const Home = () => {
                         exit={{ opacity: 0, marginLeft: "-3rem" }}
                         className="text-left text-lg lg:text-2xl lg:tracking-[8px]"
                       >
-                        PROPERTIWI GROUP
+                        Selamat Datang di
                       </motion.p>
                       <motion.p
                         initial={{ opacity: 0, marginLeft: "-3rem" }}
@@ -122,7 +148,7 @@ const Home = () => {
                         exit={{ opacity: 0, marginLeft: "-3rem" }}
                         className="text-left text-3xl lg:text-[60px] mt-4 lg:mt-8"
                       >
-                        {item.acf.name}
+                        PROPERTIWI GROUP
                       </motion.p>
                     </div>
                   </div>
@@ -130,7 +156,7 @@ const Home = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: activeIndex === index ? 1 : 0 }}
                     transition={{ duration: 2 }}
-                    src={item.acf.image_banner.length > 0 ? item.acf.image_banner[0].url : cover}
+                    src={"url" in item ? item.url : cover}
                     alt=""
                     className="object-cover lg:object-center rounded-xl w-[100%] h-[100vh] lg:h-[80vh]"
                   />
@@ -140,34 +166,41 @@ const Home = () => {
           </div>
           <div className="flex justify-center mt-10 mb-[10vh]">
             <div className="container">
-              <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] lg:mt-5 mb-[3rem] lg:mb-[6rem]">
-                <div className="text-[#545454] text-center w-1/3">
-                  <div className="text-2xl lg:text-[4rem] text-[#737373]">
-                    <CountUp start={0} end={moment().year() - 2008} />
+                <div className="flex justify-center items-center lg:gap-[4rem] w-[100%] lg:mt-5 mb-[3rem] lg:mb-[6rem]">
+                  <div className="text-[#545454] text-center w-1/3">
+                    <div className="text-2xl lg:text-[4rem] text-[#737373]">
+                      {info.length > 0 ? 
+                      <CountUp start={0} end={parseInt(info[0].acf.tahun)} />
+                      : null }
+                    </div>
+                    <p className="uppercase mt-2 lg:mt-10">Tahun</p>
                   </div>
-                  <p className="uppercase mt-2 lg:mt-10">Tahun</p>
-                </div>
-                <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-[#737373]">
-                  <div className="text-2xl lg:text-[4rem] text-[#737373]">
-                    <CountUp 
-                      start={0}
-                      end={4948}
-                      duration={2} separator=","
-                    />
+                  <div className="text-[#545454] text-center w-1/3 border-l-2 border-r-2 border-[#737373]">
+                    <div className="text-2xl lg:text-[4rem] text-[#737373]">
+                      ±
+                      {info.length > 0 ? 
+                        <CountUp 
+                          start={0}
+                          end={parseInt(info[0].acf.total_unit)}
+                          duration={2} separator=","
+                        />
+                      : null}
+                    </div>
+                    <p className="uppercase mt-2 lg:mt-10">Total Unit</p>
                   </div>
-                  <p className="uppercase mt-2 lg:mt-10">Total Unit</p>
-                </div>
-                <div className="text-[#545454] text-center w-1/3">
-                  <div className="text-2xl lg:text-[4rem] text-[#737373]">
-                    <CountUp 
-                      start={0}
-                      end={5}
-                      duration={2} separator=","
-                    />
+                  <div className="text-[#545454] text-center w-1/3">
+                    <div className="text-2xl lg:text-[4rem] text-[#737373]">
+                      {info.length > 0 ? 
+                        <CountUp 
+                          start={0}
+                          end={parseInt(info[0].acf.total_proyek)}
+                          duration={2} separator=","
+                        />
+                      : null}
+                    </div>
+                    <p className="uppercase mt-2 lg:mt-10">Proyek</p>
                   </div>
-                  <p className="uppercase mt-2 lg:mt-10">Proyek</p>
                 </div>
-              </div>
 
               <Perumahan listAddress={listAddress} dataPerum={dataPerum} />
 

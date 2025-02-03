@@ -87,7 +87,7 @@ const About = () => {
               <div className="flex flex-wrap lg:flex-nowrap my-5 lg:my-10">
                 <div className="w-[100%] lg:w-1/3">
                   <div className="flex justify-center">
-                    <img src={logo} alt="logo" />
+                    <img src={logo} alt="logo" className="w-48" />
                   </div>
                   <div className="text-xl font-['Work-Sans-Bold'] text-[#3033ac]">
                     PROPERTIWI GROUP
@@ -96,10 +96,10 @@ const About = () => {
                 <div className="w-[100%] lg:w-2/3 mt-5 lg:mt-0 text-left">
                   {about && "acf" in about ? 
                     <div
-                      className=""
+                      className="text-justify lg:text-left"
                       dangerouslySetInnerHTML={{
                         __html: about.acf.tentang_kami_text
-                          .replace(/<p>/g, '<p class="mb-5">')
+                          .replace(/<div>/g, '<div class="mb-5">')
                           .replace(
                             /<span>/g,
                             `<span class="font-['Work-Sans-Bold']">`

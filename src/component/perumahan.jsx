@@ -77,14 +77,14 @@ const Perumahan = ({ listAddress, dataPerum }) => {
               >
                 <div className="relative">
                   {item.acf.project_status.value !== 'sold_out' ? (
-                    <div className="absolute z-[1] top-6 m-auto h-[5vh] lg:h-[7vh] w-[60%]">
-                      <div className="bg-[#d0140b] py-2 px-5 text-left text-white font-['Eastman-Grotesque-Bold'] text-[18px] lg:text-[1.5rem] rounded-r-lg">
+                    <div className="absolute z-[1] top-6 m-auto h-[5vh] lg:h-[7vh] w-[50%]">
+                      <div className="bg-[#5554fe] py-2 px-5 text-left text-white font-['Eastman-Grotesque-Bold'] text-[18px] lg:text-[1.1rem] rounded-r-lg">
                         {item.acf.project_status.label}
                       </div>
                     </div>
                   ) : (
                     <div className="absolute z-[1] top-6 m-auto h-[5vh] lg:h-[7vh] w-[40%]">
-                      <div className="bg-[#5554fe] py-2 px-5 text-left text-white font-['Eastman-Grotesque-Bold'] text-[18px] lg:text-[1.5rem] rounded-r-lg">
+                      <div className="bg-[#d0140b] py-2 px-5 text-left text-white font-['Eastman-Grotesque-Bold'] text-[18px] lg:text-[1.1rem] rounded-r-lg">
                         {item.acf.project_status.label}
                       </div>
                     </div>
