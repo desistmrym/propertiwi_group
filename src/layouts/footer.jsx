@@ -58,7 +58,7 @@ const Footer = () => {
                             <p>{data.acf.email}</p>
 
                             <p className="mt-5 font-['Work-Sans-Bold']">Hubungi / WhatsApp :</p>
-                            <div dangerouslySetInnerHTML={{ __html: data.acf.kantor_pusat.staff }}></div>
+                            <div dangerouslySetInnerHTML={{ __html: data.acf.kantor_pusat.staff_footer }}></div>
 
                             <div className="mt-5">
                                 <p className="font-['Work-Sans-Bold']">Social Media</p>
