@@ -42,7 +42,7 @@ const Contact = () => {
                   <div className="w-[100%] lg:w-1/3 flex justify-center items-center">
                     <div>
                       <div className="flex justify-center">
-                        <img src={logo} alt="logo" className="lg:h-48" />
+                        <img src={logo} alt="logo" className="h-48" />
                       </div>
                       <div className="text-xl font-['Work-Sans-Bold'] text-[#3033ac]">
                         PROPERTIWI GROUP
