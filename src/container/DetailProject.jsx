@@ -17,6 +17,7 @@ const DetailProject = () => {
   const [isLoad, setIsLoad] = useState(false)
 
   useEffect(() => {
+    window.scroll(0,0)
     setIsLoad(true)
     handleData();
   }, []);
