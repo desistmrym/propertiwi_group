@@ -17,7 +17,6 @@ const DetailProject = () => {
   const [isLoad, setIsLoad] = useState(false)
 
   useEffect(() => {
-    window.scroll(0,0)
     setIsLoad(true)
     handleData();
   }, []);
@@ -36,7 +35,7 @@ const DetailProject = () => {
     }
   };
   return (
-    <div className="flex justify-center w-[100%] mt-[5rem] lg:mt-0">
+    <div className="flex justify-center w-[100%] pt-[5rem] lg:pt-0">
       {!isLoad ? 
         <div className="container">
           <div className="flex flex-wrap lg:flex-nowrap py-5 lg:py-10">
